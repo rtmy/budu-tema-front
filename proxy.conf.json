@@ -1,0 +1,7 @@
+{
+    "/method": {
+      "target": "https://api.vk.com/",
+      "secure": false,
+      "changeOrigin": true
+    }
+}

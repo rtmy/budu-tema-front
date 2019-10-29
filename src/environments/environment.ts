@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  vkapi: {
+    endpoint: '/method',
+    token: 'c8bdc09dc8bdc09dc8bdc09d8ec8d0710dcc8bdc8bdc09d9505514b2a2898f0859b6a5c',
+    version: '5.21',
+    redirect_uri: 'https://local.budu.jobs',
+    country_id: '1',
+  },
 };
 
 /*

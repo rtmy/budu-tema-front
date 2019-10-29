@@ -1,0 +1,114 @@
+<form class="example-container" [formGroup]="formGroup">
+
+<div class="profile__container">    
+    <div class="profile__title">Образование</div>
+        <div class="profile__addFields">
+            <div class="profile__addFields-close"><span></span><span></span></div>
+            <div class="profile__box">
+            <div class="profile__box-title">Университет</div>
+            <div class="form__box">
+                <mat-form-field>
+                    <input (focus)="updateUniversityQuery($event)" (input)="updateUniversityQuery($event)" type="text" class="form__field" 
+                    matInput [matAutocomplete]="autoForVersity" name="university">
+                </mat-form-field>
+
+                <mat-autocomplete #autoForVersity="matAutocomplete" (optionSelected)="setUniversity($event.option.value)" 
+                    [displayWith]="universityNameFn">
+                    <mat-option *ngFor="let option of universityQueryResponse" [value]="option">
+                        {{ option.title }}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            </div>
+            <div class="profile__box">
+            <div class="profile__box-title">Факультет</div>
+            <div class="form__box">
+                <mat-form-field>
+                    <input (focus)="updateFacultyQuery($event)" type="text" class="form__field" 
+                    matInput [matAutocomplete]="autoForFaculty" name="faculty">
+                </mat-form-field>
+
+                <mat-autocomplete #autoForFaculty="matAutocomplete" (optionSelected)="setFaculty($event.option.value)">
+                    <mat-option *ngFor="let option of facultyQueryResponse" [value]="option.title">
+                        {{ option.title }}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            </div>
+            <div class="profile__box">
+            <div class="profile__box-title">Специализация</div>
+            <div class="form__box">
+                <mat-form-field>
+                    <input type="text" class="form__field" name="specialization" matInput>
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="profile__box profile__box_group">
+            <div class="profile__box-item">
+                <div class="profile__box-title">Начало</div>
+                <mat-form-field>
+                    <div class="form__box">
+                        <input type="date" class="form__field" name="start" matInput name="startDate">
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="profile__box-item">
+                <div class="profile__box-title">Конец</div>
+                <mat-form-field>
+                    <div class="form__box">
+                       <input type="date" class="form__field" matInput name="finishedDate">
+                    </div>
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="profile__box">
+            <div class="form__box form__box_group">
+                <!-- <mat-form-field> -->
+                    <div class="form__box-item">
+                    <label class="form__label">
+                        <input type="radio" name="qualification" class="form__radio">
+                        <div class="form__divRadio"></div>
+                        Бакалавр
+                    </label>
+                    </div>
+                    <div class="form__box-item">
+                    <label class="form__label">
+                        <input type="radio" name="qualification" class="form__radio">
+                        <div class="form__divRadio"></div>
+                        Магистр
+                    </label>
+                    </div>
+                    <div class="form__box-item">
+                    <label class="form__label">
+                        <input type="radio" name="qualification" class="form__radio">
+                        <div class="form__divRadio"></div>
+                        Специалист
+                    </label>
+                    </div>
+                <!-- </mat-form-field> -->
+            </div>
+            </div>
+            <div class="profile__box">
+            <div class="profile__box-item">
+                <div class="profile__box-title">Средний балл</div>
+                <div class="form__box form__box_group">
+                <mat-form-field>
+                    <div class="profile__ball">
+                        <input type="text" class="form__field profile__ballField" placeholder="Балл" 
+                        matInput name="averageScore">
+                        <span>из 5</span>
+                    </div>
+                </mat-form-field>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="profile__box">
+            <div class="profile__add">
+            Добавить университет +
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
+
+</form>
