@@ -8,10 +8,10 @@
             <div class="form__box form__box_group">
 
                 <mat-form-field>
-                        <input type="text" class="form__field" matInput [matAutocomplete]="autoUpdate" [placeholder]="availableLanguages[cl.key]">
+                        <input type="text" class="form__field" matInput [matAutocomplete]="autoUpdate" [value]="availableLanguages[cl.key]">
                 </mat-form-field>
                 <mat-autocomplete #autoUpdate="matAutocomplete">
-                    <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction" [value]="l.key">
+                    <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction" [value]="l.value">
                         <ng-container *ngIf="!chosenLanguages[l.key]">
                                 {{ l.value }}   
                         </ng-container>
