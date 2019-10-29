@@ -11,10 +11,9 @@
                         <input type="text" class="form__field" matInput [matAutocomplete]="autoUpdate" [value]="availableLanguages[cl.key]">
                 </mat-form-field>
                 <mat-autocomplete #autoUpdate="matAutocomplete">
-                    <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction" [value]="l.value">
-                        <ng-container *ngIf="!chosenLanguages[l.key]">
-                                {{ l.value }}   
-                        </ng-container>
+                    <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction | availableLanguageFilter:chosenLanguages" 
+                    [value]="l.value">
+                        {{ l.value }}   
                     </mat-option>
                 </mat-autocomplete>
 
@@ -39,10 +38,7 @@
             </mat-form-field>
 
             <mat-autocomplete #autoAdd="matAutocomplete" (optionSelected)="addToChosen($event.option.value)">
-                <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction" [value]="l.key">
-                    <ng-container *ngIf="!chosenLanguages[l.key]">
-                            {{ l.value }}   
-                    </ng-container>
+                <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction | availableLanguageFilter:chosenLanguages" [value]="l.key">
                 </mat-option>
             </mat-autocomplete>
         </div>
