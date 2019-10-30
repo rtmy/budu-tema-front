@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, forwardRef } from '@angular/core';
-import { FormGroup, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormGroup, FormControl, NG_VALUE_ACCESSOR, NG_VALIDATORS, AbstractControl, ValidationErrors, ControlValueAccessor, Validator } from '@angular/forms';
 
 import { VkApiService } from '../vk-api.service';
 
@@ -12,10 +12,15 @@ import { VkApiService } from '../vk-api.service';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => UniversityPickerComponent),
       multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => UniversityPickerComponent),
+      multi: true
     }
   ]
 })
-export class UniversityPickerComponent implements OnInit {
+export class UniversityPickerComponent implements OnInit, ControlValueAccessor, Validator {
 
   protected formGroup: FormGroup;
   protected autoForFaculty = null;
@@ -119,6 +124,10 @@ export class UniversityPickerComponent implements OnInit {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  validate(c: AbstractControl): ValidationErrors | null{
+    return this.formGroup.valid ? null : { invalidForm: {valid: false, message: "fields are invalid"}};
   }
 
 }

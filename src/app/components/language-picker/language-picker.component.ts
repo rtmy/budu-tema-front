@@ -1,5 +1,5 @@
 import { Component, OnInit, forwardRef, Input } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, AbstractControl, ValidationErrors, NG_VALIDATORS, Validator } from '@angular/forms';
 
 import { languages } from '../language-dict.service';
 
@@ -12,10 +12,15 @@ import { languages } from '../language-dict.service';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => LanguagePickerComponent),
       multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => LanguagePickerComponent),
+      multi: true
     }
   ]
 })
-export class LanguagePickerComponent implements OnInit, ControlValueAccessor {
+export class LanguagePickerComponent implements OnInit, ControlValueAccessor, Validator {
 
   availableLanguages = languages;
   chosenLanguages = {
@@ -94,6 +99,10 @@ export class LanguagePickerComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  validate(c: AbstractControl): ValidationErrors | null{
+    return this.chosenControl.valid ? null : { invalidForm: {valid: false, message: "language control fields are invalid"}};
   }
 
 }
