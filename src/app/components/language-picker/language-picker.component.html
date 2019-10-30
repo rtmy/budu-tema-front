@@ -12,14 +12,15 @@
                 </mat-form-field>
                 <mat-autocomplete #autoUpdate="matAutocomplete">
                     <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction | availableLanguageFilter:chosenLanguages" 
-                    [value]="l.value">
+                    [value]="l.key" (onSelectionChange)="changeChosen(cl.key, $event.source.value)">
                         {{ l.value }}   
                     </mat-option>
                 </mat-autocomplete>
 
             </div>
             <div class="form__box-item">
-                <select class="form__select form__select_styler form__field" name="language-type">
+                <select class="form__select form__select_styler form__field" name="language-type"
+                (change)="setLevel(cl.key, $event.target.value)" [value]="chosenLanguages[cl.key].level">
                     <option value="junior">Разговорный</option>
                     <option value="senior">Свободный</option>
                     <option value="middle">Средний</option>
@@ -29,21 +30,24 @@
     </ul>
 
     <div *ngIf="addingMode" class="form__box form__box_group profile__lang">
-        <div class="profile__addFields-close" (click)="removeFromChosen(cl.key)">
-            x
-        </div>
+        <!-- <div class="profile__addFields-close" (click)="removeFromChosen(cl.key)"> -->
+            <!-- x -->
+        <!-- </div> -->
         <div>     
             <mat-form-field>
                     <input type="text" class="form__field" matInput [matAutocomplete]="autoAdd">
             </mat-form-field>
 
-            <mat-autocomplete #autoAdd="matAutocomplete" (optionSelected)="addToChosen($event.option.value)">
-                <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction | availableLanguageFilter:chosenLanguages" [value]="l.key">
+            <mat-autocomplete #autoAdd="matAutocomplete">
+                <mat-option *ngFor="let l of availableLanguages | keyvalue:mySortingFunction | availableLanguageFilter:chosenLanguages" 
+                [value]="l.key" (onSelectionChange)="addToChosen($event.source.value)">
+                    {{ l.value }}
                 </mat-option>
             </mat-autocomplete>
         </div>
-
+        
         <select class="form__select form__select_styler form__field" name="language-type">
+        <!-- (change)="setLevel(cl.key, $event.target.value)" [value]="chosenLanguages[cl.key].level"> -->
             <option value="junior">Разговорный</option>
             <option value="senior">Свободный</option>
             <option value="middle">Средний</option>

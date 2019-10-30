@@ -11,6 +11,7 @@ export class AvailableLanguageFilter implements PipeTransform {
         }
         // filter items array, items which match and return true will be
         // kept, false will be filtered out
+        // console.log('entering items', items.filter(item => !chosenLanguages[item.key]));
         return items.filter(item => !chosenLanguages[item.key]);
     }
 }

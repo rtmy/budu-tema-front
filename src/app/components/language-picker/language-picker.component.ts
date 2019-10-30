@@ -12,7 +12,10 @@ export class LanguagePickerComponent implements OnInit {
 
   availableLanguages = languages;
   chosenLanguages = {
-    'ru': true,
+    'ru': {
+      active: true,
+      level: 'middle',
+    },
   };
   addingMode = false;
   protected autoAdd = null;
@@ -24,29 +27,39 @@ export class LanguagePickerComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  private mySortingFunction = (a, b) => {
-    return 1;
-  }
-
+  
   updateChosenControl() {
     this.chosenControl.setValue(Object.keys(this.chosenLanguages));
   }
-
+  
   addToChosen(code) {
-    this.chosenLanguages[code] = true;
-    this.updateChosenControl();
+    this.chosenLanguages[code] = {active: true, level: 'middle'};
     this.addingMode = false;
+    this.updateChosenControl();
   }
-
+  
   removeFromChosen(code) {
-    this.chosenLanguages[code] = false;
     delete this.chosenLanguages[code];
     this.updateChosenControl();
   }
 
+  changeChosen(oldCode, newCode) {
+    this.removeFromChosen(oldCode);
+    this.addToChosen(newCode);
+  }
+  
   addNew() {
     this.addingMode = true;
   }
 
+  setLevel(code, level) {
+    this.chosenLanguages[code] = {
+      ...this.chosenLanguages[code],
+      level: level
+    };
+  }
+  
+  private mySortingFunction = (a, b) => {
+    return 1;
+  }
 }
