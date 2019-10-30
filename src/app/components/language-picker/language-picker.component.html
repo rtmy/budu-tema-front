@@ -27,12 +27,12 @@
                 </select>        
             </div>
         </li>
+        <div class="profile__addFields-close" (click)="removeFromChosen(cl.key)">
+            x
+        </div>
     </ul>
 
     <div *ngIf="addingMode" class="form__box form__box_group profile__lang">
-        <!-- <div class="profile__addFields-close" (click)="removeFromChosen(cl.key)"> -->
-            <!-- x -->
-        <!-- </div> -->
         <div>     
             <mat-form-field>
                     <input type="text" class="form__field" matInput [matAutocomplete]="autoAdd">
@@ -46,8 +46,8 @@
             </mat-autocomplete>
         </div>
         
-        <select class="form__select form__select_styler form__field" name="language-type">
-        <!-- (change)="setLevel(cl.key, $event.target.value)" [value]="chosenLanguages[cl.key].level"> -->
+        <select class="form__select form__select_styler form__field" name="language-type"
+        (change)="setLevel(cl.key, $event.target.value)" [value]="chosenLanguages[cl.key].level">
             <option value="junior">Разговорный</option>
             <option value="senior">Свободный</option>
             <option value="middle">Средний</option>
