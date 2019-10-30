@@ -46,6 +46,7 @@ export class LanguagePickerComponent implements OnInit {
   changeChosen(oldCode, newCode) {
     this.removeFromChosen(oldCode);
     this.addToChosen(newCode);
+    this.updateChosenControl();
   }
   
   addNew() {
@@ -57,6 +58,7 @@ export class LanguagePickerComponent implements OnInit {
       ...this.chosenLanguages[code],
       level: level
     };
+    this.updateChosenControl();
   }
   
   private mySortingFunction = (a, b) => {
