@@ -12,7 +12,7 @@
                     matInput [matAutocomplete]="autoForVersity" name="university">
                 </mat-form-field>
 
-                <mat-autocomplete #autoForVersity="matAutocomplete" (optionSelected)="setUniversity($event.option.value)" 
+                <mat-autocomplete #autoForVersity="matAutocomplete" (onSelectionChange)="setUniversity($event.option.value)" 
                     [displayWith]="universityNameFn">
                     <mat-option *ngFor="let option of universityQueryResponse" [value]="option">
                         {{ option.title }}
@@ -28,7 +28,7 @@
                     matInput [matAutocomplete]="autoForFaculty" name="faculty">
                 </mat-form-field>
 
-                <mat-autocomplete #autoForFaculty="matAutocomplete" (optionSelected)="setFaculty($event.option.value)">
+                <mat-autocomplete #autoForFaculty="matAutocomplete" (onSelectionChange)="setFaculty($event.option.value)">
                     <mat-option *ngFor="let option of facultyQueryResponse" [value]="option.title">
                         {{ option.title }}
                     </mat-option>

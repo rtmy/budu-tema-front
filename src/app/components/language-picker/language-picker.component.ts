@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, forwardRef, Input } from '@angular/core';
+import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { languages } from '../language-dict.service';
 
 @Component({
   selector: 'app-language-picker',
   templateUrl: './language-picker.component.html',
-  styleUrls: ['./language-picker.component.scss']
+  styleUrls: ['./language-picker.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => LanguagePickerComponent),
+      multi: true
+    }
+  ]
 })
-export class LanguagePickerComponent implements OnInit {
+export class LanguagePickerComponent implements OnInit, ControlValueAccessor {
 
   availableLanguages = languages;
   chosenLanguages = {
@@ -20,6 +27,8 @@ export class LanguagePickerComponent implements OnInit {
   addingMode = false;
   protected autoAdd = null;
   protected autoUpdate = null;
+
+  @Input() disabled = false;
 
   chosenControl = new FormControl([]);
 
@@ -64,4 +73,27 @@ export class LanguagePickerComponent implements OnInit {
   private mySortingFunction = (a, b) => {
     return 1;
   }
+
+  onChange = (rating: number) => {};
+  
+  onTouched = () => {};
+
+  writeValue(value: any): void {
+    if(value) {
+      this.chosenControl.setValue(value);
+    }
+  }
+
+  registerOnChange(fn: (rating: number) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
 }
