@@ -77,6 +77,10 @@ export class UniversityPickerComponent
   }
 
   updateFacultyQuery($event) {
+    if (!this.chosenUniversity.id) {
+      return;
+    }
+
     this.api.queryFacultiesByName(this.chosenUniversity.id).subscribe(resp => {
       let facultyQueryResponse = [];
       let faculties = resp["response"]["items"];
