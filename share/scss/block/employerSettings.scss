@@ -1,0 +1,150 @@
+
+.employerSettings {
+  max-width: 750px;
+  background-color: #fff;
+  box-shadow: 0 0 0 #000;
+  box-shadow: 0 0 9px #e8e8e8;
+
+  & + & {
+    margin-top: 45px;
+  }
+}
+
+.employerSettings__head {
+  background-color: #f5f7f6;
+  padding: 18px 60px;
+}
+
+.employerSettings__head-title {
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.employerSettings__body {
+  background-color: #fff;
+  padding: 45px 60px;
+
+  &_group {
+    display: flex;
+  }
+}
+
+.employerSettings__body-item {
+  width: 100%;
+
+  & + & {
+    max-width: 130px;
+    margin-left: 70px;
+  }
+}
+
+.employerSettings__body-box {
+  & + & {
+    margin-top: 20px;
+  }
+}
+
+.employerSettings__body-title {
+  margin-bottom: 15px;
+  color: #8e8e8e;
+}
+
+.employerSettings__body-logo {
+  margin-top: 35px;
+  min-height: 130px;
+  margin-bottom: 34px;
+  background-color: #f5f7f6;
+}
+
+.employerSettings__body-addLogo {
+  color: #3cd52e;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.employerSettings__labelShow {
+  position: relative;
+  cursor: pointer;
+
+  & .form__field {
+    padding-right: 62px;
+  }
+}
+
+.employerSettings__body-line {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  margin-right: -199px;
+  border-bottom: 3px dashed #f5f7f6;
+}
+
+.employerSettings__body-thisMail {
+  margin-bottom: 35px;
+}
+
+.employerSettings__body-box_btn {
+  text-align: right;
+}
+
+.employerSettings__footer {
+  padding: 30px 60px;
+}
+
+.employerSettings__footer-info {
+  color: #8e8e8e;
+
+  & a {
+    font-weight: 400;
+    color: #000000;
+  }
+}
+
+@media(max-width: 768px) {
+  .employerSettings__head {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  .employerSettings__body {
+    padding: 2rem;
+  }
+
+  .employerSettings__body_group {
+    flex-direction: column;
+  }
+
+  .employerSettings__body-item {
+
+    & + & {
+      margin-left: 0;
+    }
+
+    &_face {
+      order: -1;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .employerSettings__footer {
+    padding: 2rem;
+  }
+  
+  .employerSettings__head-title {
+    font-size: 18px;
+  }
+
+  .employerSettings__body-line {
+    margin-right: 0;
+  }
+}
+
+@media(max-width: 480px) {
+  .employerSettings__head {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .employerSettings__body {
+    padding: 1rem;
+  }
+}

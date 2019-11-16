@@ -1,0 +1,22 @@
+
+.sendMessage {
+
+  & textarea {
+    margin-bottom: 1rem;
+    padding: 2rem;
+    border: 0;
+    width: 100%;
+    min-height: 150px;
+    background-color: #fff;
+    resize: none;
+  }
+}
+
+.sendMessage__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sendMessage__btn {
+  margin-left: auto;
+}

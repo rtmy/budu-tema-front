@@ -1,0 +1,25 @@
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.skills__title {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.skills__item {
+  padding: 4px 1rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+  background-color: #f5f7f6;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  font-size: 14px;
+  cursor: pointer;
+}

@@ -1,0 +1,104 @@
+
+.btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 21.5px 39px;
+  cursor: pointer;
+  transition: .3s;
+  color: #000;
+  background-color: transparent;
+  text-align: center;
+  font-size: 16px;
+
+  &:hover {
+    text-decoration: none;
+    color: #000;
+
+    &::after {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    top: 7px;
+    left: 7px;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgb(60, 213, 45);
+    transition: .3s;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    border: 1px solid rgba(0, 0, 0, .7);
+    transition: .3s;
+  }
+
+  &_orange {
+    &::after {
+      background-color: #ffcb5b;
+    }
+  }
+
+  &_gray {
+    color: #a8a8a8;
+
+    &::after {
+      background-color: #f5f7f6;
+    }
+
+    &::before {
+      border-color: #a8a8a8;
+    }
+
+    &:hover {
+      &::before {
+				border-color: #000;
+      }
+		}
+  }
+
+  &_disable {
+    color: #a8a8a8;
+    background-color: #f5f7f6;
+    cursor: default;
+
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      color: #a8a8a8;
+		}
+  }
+}
+
+@media (max-width: 980px) {
+  .btn {
+    width: 260px;
+    padding: 1rem 0;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 210px;
+    padding: 1rem 0;
+    font-size: 14px;
+  }
+}

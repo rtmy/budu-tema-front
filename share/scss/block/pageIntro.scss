@@ -1,0 +1,87 @@
+
+.pageIntro {
+  padding-top: 5rem;
+  text-align: center;
+  padding-bottom: 5rem;
+  margin-right: -200px;
+}
+
+.pageIntro__title {
+  margin-bottom: 18px;
+  color: #1d1d1d;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.pageIntro__description {
+  margin-bottom: 48px;
+  color: #1d1d1d;
+  font-size: 20px;
+  max-width: 484px;
+  font-weight: 300;
+  line-height: 32px;
+  text-align: left;
+}
+
+.pageIntro__count {
+  margin-bottom: 48px;
+  color: #1d1d1d;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.pageIntro__add {
+  padding: 21.5px 39px;
+}
+
+@media (max-width: 980px) {
+  .pageIntro__add {
+    padding: 1rem 0;
+  }
+
+  .pageIntro {
+    padding-top: 0;
+    margin-right: 0;
+  }
+
+  .pageIntro__title {
+    text-align: center;
+  }
+
+  .pageIntro__description {
+    text-align: center;
+  }
+
+  .pageIntro__count {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageIntro__title {
+    margin-bottom: 1.5rem;
+    font-size: 36px;
+  }
+
+  .pageIntro__description {
+    margin-bottom: 1.5rem;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .pageIntro__count {
+    margin-bottom: 1.5rem;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .pageIntro__description {
+    max-width: 290px;
+  }
+}
+

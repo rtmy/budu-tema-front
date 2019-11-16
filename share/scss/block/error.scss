@@ -1,0 +1,38 @@
+
+.error {
+  display: flex;
+  height: 100vh;
+  background-image: url(/assets/media/error/error.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.error__btn {
+  margin: auto auto 224px auto;
+  color: rgba(158, 158, 158, 0.8);
+
+  &::before {
+    border-color: #e2e2e2;
+  }
+
+  &::after {
+    background-color: #f5f7f6;
+  }
+}
+
+@media(max-width: 1024px) {
+  .error {
+    background-image: url(/assets/media/error/error-1024.jpg);
+  }
+
+  .error__btn {
+    margin-bottom: 100px;
+  }
+}
+
+@media(max-width: 480px) {
+  .error {
+    background-image: url(/assets/media/error/error-480.jpg);
+  }
+}

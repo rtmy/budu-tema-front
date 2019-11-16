@@ -1,0 +1,18 @@
+
+.comeBack {
+  margin-bottom: 2rem;
+}
+
+.comeBack__btn {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 400;
+  color: #3cd52e;
+  cursor: pointer;
+
+  & img {
+    display: inline-block;
+    width: 40px;
+    margin-right: 1rem;
+  }
+}

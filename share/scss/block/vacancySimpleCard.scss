@@ -1,0 +1,35 @@
+.vacancySimpleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 34px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #d6d6d6;
+}
+
+.vacancySimpleCard__logo {
+  margin-bottom: 30px;
+  width: 220px;
+  padding: 15px;
+}
+
+.vacancySimpleCard__name {
+  margin-bottom: 18px;
+  color: #3cd52e;
+  font-weight: 400;
+  font-size: 21px;
+}
+
+.vacancySimpleCard__description {
+  line-height: 24px;
+  color: #8e8e8e;
+}
+
+.vacancySimpleCard__open {
+  margin-right: auto;
+  margin-top: 10px;
+  color: #3cd52e;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+
+.hints {
+  position: relative;
+  padding: 30px 20px;
+  background-color: #56595c;
+  max-width: 362px;
+
+  &_scroll {
+    position: fixed;
+  }
+}
+
+.hints__head {
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hints__description {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .hints {
+    display: none;
+  }
+}

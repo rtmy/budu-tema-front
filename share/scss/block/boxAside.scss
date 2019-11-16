@@ -1,0 +1,37 @@
+
+.boxAside {
+  display: flex;
+
+  & + & {
+    margin-top: 48px;
+  }
+}
+
+.boxAside__item {
+  width: 100%;
+
+  & + & {
+    min-width: 362px;
+    width: 362px;
+    margin-left: 28px;
+  }
+}
+
+@media (max-width: 980px) {
+  .boxAside {
+    flex-direction: column;
+  }
+
+  .boxAside__item {
+    & + & {
+      margin-top: 48px;
+      width: 100%;
+      min-width: 100%;
+      margin-left: 0;
+    }
+
+    &_hide {
+      display: none;
+    }
+  }
+}

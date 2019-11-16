@@ -1,0 +1,405 @@
+
+// .addSummary {}
+
+.addSummary__container {
+	max-width: 750px;
+}
+
+.addSummary__item {
+	background-color: #ffffff;
+	box-shadow: 0 0 8px 0px #e2e2e2;
+
+	& + & {
+		margin-top: 48px;
+	}
+}
+
+.addSummary__item-head {
+	padding: 18px 65px;
+	background-color: #f5f7f6;
+}
+
+.addSummary__title {
+	font-size: 20px;
+	font-weight: 400;
+	vertical-align: middle;
+
+	& img {
+		display: inline-block;
+		margin-left: 1.5rem;
+		cursor: pointer;
+	}
+
+	.addSummary__field {
+		display: none;
+	}
+}
+
+.addSummary__item-body {
+	padding: 48px 65px;
+}
+
+.addSummary__gridField {
+	display: flex;
+}
+
+.addSummary__error-message,
+.addSummary__success-message {
+	color: red;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.addSummary__success-message {
+	color: #3cd52e;
+}
+
+.addSummary__gridField.account__type {
+	margin-bottom: 30px;
+	justify-content: space-around;
+}
+
+.addSummary__box {
+	width: 100%;
+
+	&_logo {
+		min-width: 130px;
+		width: 130px;
+		margin-left: 65px;
+		margin-bottom: auto;
+	}
+}
+
+.addSummary__containerField {
+	& + & {
+		margin-top: 35px;
+	}
+}
+
+.addSummary__containerField-title {
+	margin-bottom: 20px;
+	font-weight: 400;
+}
+
+.addSummary__field {
+	width: 100%;
+	height: 45px;
+	padding-right: 15px;
+	padding-left: 15px;
+	background-color: #f5f7f6;
+	font-size: 14px;
+	color: rgba(158, 158, 158, 0.8);
+
+	&_loop {
+		display: none;
+		margin-top: 1rem;
+		background-color: #ffffff;
+	}
+}
+
+.addSummary__logo {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.addSummary__addLogo {
+	position: absolute;
+	top: calc(100% - 15px);
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
+	cursor: pointer;
+}
+
+.addSummary__gridItem {
+	width: 50%;
+
+	& + & {
+		margin-left: 15px;
+	}
+}
+
+.addSummary__select {
+	width: 100%;
+
+	& .jq-selectbox__select {
+		width: 100%;
+    height: 48px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 0;
+    background: #f5f7f6;
+		line-height: 48px;
+		border: 0;
+		box-shadow: none;
+	}
+
+	& .jq-selectbox__select-text {
+		font-size: 14px;
+		color: rgba(158, 158, 158, 0.8);
+	}
+
+	& .jq-selectbox__trigger {
+		border: 0;
+	}
+
+	& .jq-selectbox__trigger-arrow {
+    top: 22px;
+    right: 8px;
+    border-top: 8px solid #3cd52e;
+    border-right: 8.5px solid transparent;
+    border-left: 8.5px solid transparent;
+	}
+
+	& .jq-selectbox__dropdown {
+		overflow: hidden;
+
+		& li {
+			min-height: 48px;
+			padding: 0px 15px;
+			line-height: 48px;
+			color:#8e8e8e;
+			border-left: 5px solid transparent;
+			font-size: 14px;
+
+			&.selected {
+				background-color: transparent;
+				color: #000!important;
+				border-left-color:#3cd52e;
+			}
+
+			&:hover {
+				background-color: #3cd52e;
+				color: #FFF;
+				border-left-color: #000;
+			}
+		}
+	}
+}
+
+.addSummary__label {
+	color: rgba(158, 158, 158, 0.8);
+	font-size: 14px;
+
+	& span {
+		font-size: 14px;
+	}
+
+	&_vertical {
+		display: block;
+
+		& + & {
+			margin-top: 15px;
+		}
+	}
+
+	&_mr {
+		margin-right: 30px;
+	}
+}
+
+.addSummary__radio {
+	position: fixed;
+	left: -99999px;
+	z-index: -9999;
+	opacity: 0;
+	visibility: hidden;
+
+	&:checked + .addSummary__divRadio {
+		border-color: #3cd52e;
+		background-color: #fff;
+
+		&::before {
+			background-color: #3cd52e;
+			width: 14px;
+			height: 14px;
+		}
+
+		& + span {
+			color: #000000;
+		}
+	}
+}
+
+.addSummary__divRadio {
+	position: relative;
+	display: inline-block;
+	margin-right: 5px;
+	width: 26px;
+	height: 26px;
+	border: 1px solid #ebebeb;
+	background-color: #f5f7f6;
+	border-radius: 50%;
+	cursor: pointer;
+	vertical-align: middle;
+
+	&::before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 12px;
+		height: 12px;
+		background-color: #e2e2e2;
+		border: 1px solid #fdfefe;
+		border-radius: 50%;
+		content: "";
+	}
+}
+
+.addSummary__gridField.account__type {
+	.addSummary__divRadio {
+		margin-right: 10px;
+	}
+	.addSummary__label span {
+		font-weight: 700;
+	}
+}
+
+.addSummary__checkbox {
+	position: fixed;
+	left: -99999px;
+	z-index: -9999;
+	opacity: 0;
+	visibility: hidden;
+
+	&:checked + .addSummary__divCheckbox {
+		border-color: #3cd52e;
+		background-color: #fff;
+
+		&::before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(130deg);
+			width: 10px;
+			height: 5px;
+			border-right: 1px solid #3cd52e;
+			border-top: 1px solid #3cd52e;
+			content: "";
+		}
+
+		& + span {
+			color: #000000;
+		}
+	}
+}
+
+.addSummary__divCheckbox {
+	position: relative;
+	display: inline-block;
+	margin-right: 5px;
+	width: 26px;
+	height: 26px;
+	border: 1px solid #ebebeb;
+	border-radius: 5px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.addSummary__textarea {
+	width: 100%;
+	min-height: 100px;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #f5f7f6;
+	font-size: 16px;
+	line-height: 1.5em;
+	border: 0;
+	resize: none;
+}
+
+.addSummary__footer {
+	padding-top: 22px;
+}
+
+.addSummary__data {
+	color: rgba(158, 158, 158, 0.8);
+	margin-bottom: 65px;
+	font-size: 14px;
+}
+
+.addSummary__dataField {
+	padding: 5px;
+	margin-left: 35px;
+}
+
+.addSummary__containerBtn {
+	display: flex;
+}
+
+.addSummary__submit {
+	min-width: 180px;
+
+	&_save {
+		margin-left: auto;
+    color: rgba(158, 158, 158, 0.8);
+
+    &::before {
+      border-color: #e2e2e2;
+    }
+    &::after {
+      background-color: #fff;
+		}
+		
+		&:hover {
+			&::before {
+				border-color: #000;
+			}
+		}
+	}
+
+	&_publish {
+		margin-left: 17px;
+	}
+
+	&_gray {
+    &::after {
+      background-color: #f5f7f6;
+    }
+  }
+}
+
+
+@media(max-width: 768px) {
+	.addSummary__item-head {
+		padding-right: 1.5rem;
+		padding-left: 1.5rem;
+	}
+
+	.addSummary__item-body {
+		padding: 1.5rem;
+	}
+}
+
+@media(max-width: 480px) {
+	.addSummary__gridField {
+		flex-wrap: wrap;
+	}
+
+	.addSummary__box {
+		&_logo {
+			margin-top: 2rem;
+			min-width: 100%;
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	.addSummary__gridItem {
+		width: 100%;
+
+		& + & {
+			margin-top: 2rem;
+			margin-left: 0;
+		}
+	}
+
+	.addSummary__label {
+		display: block;
+		& + & {
+			margin-top: 1rem;
+		}
+	}
+}

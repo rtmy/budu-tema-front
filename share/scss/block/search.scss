@@ -1,0 +1,37 @@
+
+.search {
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.1);
+}
+
+.search__label {
+  display: flex;
+  align-items: center;
+}
+
+.search__field {
+  width: 100%;
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 68px;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.search__icon {
+  padding-right: 28px;
+}
+
+@media(max-width: 480px) {
+  .search__field {
+    font-size: 14px;
+    padding: 1rem;
+    padding-left: 1rem;
+  }
+
+  .search__icon {
+    padding-right: 1rem;
+  }
+}

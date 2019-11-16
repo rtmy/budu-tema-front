@@ -1,0 +1,42 @@
+
+.partnersCompany {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &_seeker {
+    margin-top: 134px;
+  }
+}
+
+.partnersCompany__description {
+  width: calc(50% - 60px);
+  color: #1d1d1d;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.partnersCompany__search {
+  width: 100%;
+  margin-top: 95px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .partnersCompany__description {
+    width: calc(50% - 50px);
+    font-size: 20px;
+  }
+}
+
+// @media (max-width: 980px) {}
+
+@media (max-width: 768px) {
+  .partnersCompany__description {
+    margin-bottom: 2rem;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

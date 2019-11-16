@@ -1,0 +1,256 @@
+.jobOpenings {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -1rem;
+  margin-right: -15px;
+  margin-left: -15px;
+
+  &_slide {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  & .owl-dot {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(0, 0, 0, .62) !important;
+    border-radius: 50%;
+    margin-right: .5rem;
+    margin-left: .5rem;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.active {
+      background-color: #000;
+      border: 1px solid rgba(0, 0, 0, 1) !important;
+    }
+  }
+
+  & .owl-dots {
+    margin-top: 93px;
+    text-align: center;
+  }
+}
+
+.jobOpenings__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 358px;
+  margin: 1rem;
+  padding: 15px 15px 23px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 7px 0px rgba(0, 0, 0, .1);
+  text-align: center;
+  color: #000;
+  transition: .3s;
+
+  &_gold {
+    border: 3px solid #ffedb1;
+
+    &::after {
+      left: -3px !important;
+      top: calc(100% - 5px) !important;
+    }
+
+    &:hover {
+      &::after {
+        width: calc(100% + 6px) !important;
+      }
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 0;
+    width: 0;
+    height: 8px;
+    background-color: #3cd52d;
+    content: '';
+    transition: .3s width;
+    border-radius: 0 0 5px 5px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 7px 0px #eaeaea;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.jobOpenings__importance {
+  position: absolute;
+  top: -1px;
+  left: 25px;
+  width: 58px;
+}
+
+.jobOpenings__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.jobOpenings__head-icon {
+  margin-left: auto;
+  min-width: 30px;
+  width: 30px;
+  min-height: 28px;
+}
+
+.jobOpenings__media {
+  max-width: 120px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jobOpenings__name {
+  margin-bottom: .5rem;
+  font-weight: 300;
+  font-size: 26px;
+}
+
+.jobOpenings__title {
+  margin-bottom: .5rem;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.jobOpenings__intro {
+  margin-bottom: .5rem;
+  font-weight: 400;
+  font-size: 16px;
+  color: #3cd52d;
+}
+
+.jobOpenings__price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  & img {
+    margin-right: .5rem;
+    width: 20px !important;
+  }
+}
+
+.jobOpenings__city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  font-style: italic;
+  color: #a4a4a4;
+  font-size: 18px;
+  font-style: italic;
+
+  & img {
+    margin-right: .5rem;
+    width: 20px !important;
+  }
+}
+
+.jobOpenings__footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.jobOpenings__footer-item {
+  position: relative;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  padding: 6px 17px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  background-color: #f5f5f5;
+  line-height: 1;
+
+  &:hover {
+    & span {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  & span {
+    display: none;
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    padding: 30px;
+    background-color: #56595c;
+    border: 1px solid #cacaca;
+    font-size: 12px;
+    line-height: 1;
+    transform: translateX(-50%);
+    opacity: 0;
+    color: #fff;
+    white-space: nowrap;
+
+    &::before {
+      position: absolute;
+      top: 98%;
+      left: 50%;
+      transform: rotate(45deg) translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-right: 1px solid #cacaca;
+      border-bottom: 1px solid #cacaca;
+      background-color: #56595c;
+      content: '';
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .jobOpenings__item {
+    width: 288px;
+  }
+
+  .jobOpenings__footer {
+    flex-wrap: wrap;
+  }
+
+  .jobOpenings__footer-item {
+    padding: 5px 10px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+}
+
+@media (max-width: 980px) {
+  .jobOpenings__item {
+    width: 342px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jobOpenings {
+    & .owl-dots {
+      margin-top: 34px;
+    }
+  }
+
+  .jobOpenings__item {
+    width: 100%;
+  }
+
+  .jobOpenings_slide {
+    & .jobOpenings__item {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+
+// .formLogIn {}
+
+.formLogIn__field {
+  &_flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & + & {
+    margin-top: 1rem;
+  }
+}
+
+.formLogIn__label {
+  &_check {
+    display: flex;
+  }
+}
+
+.formLogIn__input {
+  width: 100%;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+}
+
+.formLogIn__checkClone {
+  position: relative;
+  min-width: 18px;
+  min-height: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: .5rem;
+  border: 1px solid #cacaca;
+  border-radius: 3px;
+}
+
+.formLogIn__check {
+  position: absolute;
+  z-index: -999;
+  left: -9999999px;
+  visibility: hidden;
+  opacity: 0;
+
+  &:checked + .formLogIn__checkClone {
+    border-color: #3cd52d;
+
+    &::before {
+      position: absolute;
+      top: 4px;
+      left: 3px;
+      transform: rotate(-45deg);
+      width: 10px;
+      height: 6px;
+      border-bottom: 2px solid #3cd52d;
+      border-left: 2px solid #3cd52d;
+      content: '';
+    }
+  }
+}
+
+.formLogIn__forgot {
+  text-align: right;
+  color: #000;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.formLogIn__btn {
+  width: 100%;
+  font-size: 18px;
+  border-radius: 0;
+}
+
+.formLogIn__register {
+  & a {
+    font-weight: 400;
+    color: #000;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .formLogIn__field {
+    &_flex {
+      flex-direction: column;
+    }
+  }
+
+  .formLogIn__forgot {
+    margin-top: .5rem;
+    text-align: left;
+  }
+}

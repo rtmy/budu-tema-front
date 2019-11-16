@@ -1,0 +1,13 @@
+
+.checkInMedia {
+  width: calc(100% - 460px);
+  display: flex;
+  align-items: center;
+}
+
+
+@media(max-width: 768px) {
+  .checkInMedia {
+    width: 100%;
+  }
+}

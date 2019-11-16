@@ -1,0 +1,44 @@
+
+.advice {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #000;
+}
+
+.advice__box {
+  display: flex;
+  align-items: center;
+  height: 88px;
+  background: url(/assets/media/advice/poloski.png) no-repeat calc(100% + 1px) 0;
+}
+
+.advice__cosmonaut {
+  margin-right: 20px;
+  min-width: 82px;
+  height: 87px;
+  background: url(/assets/media/advice/cosmonaut.png);
+  background-size: cover;
+}
+
+.advice__title {
+  color: #ffffff;
+
+  & a {
+    display: inline-block;
+    margin-left: 10px;
+    color: #ffcb5b;
+    transition: .3s color;
+
+    &:hover {
+      color: #3cd52e;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .advice__box {
+    background: none;
+  }
+}

@@ -1,0 +1,42 @@
+.authorization {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: auto;
+  padding-left: 34px;
+
+  &_pr68 {
+    padding-right: 34px;
+    padding-left: 0;
+  }
+}
+
+.authorization__item {
+  min-width: 35px;
+  cursor: pointer;
+}
+
+.authorization__logo {
+  width: 140px;
+}
+
+.authorization__item_right {
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .authorization {
+    margin-bottom: 0;
+    padding-right: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .authorization {
+    margin-bottom: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

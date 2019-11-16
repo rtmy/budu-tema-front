@@ -1,0 +1,23 @@
+
+.responseSent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  background: url(/assets/media/responseSent/bg.jpg) no-repeat center center;
+  box-shadow: 0 0 10px #d6d6d6;
+}
+
+.responseSent__description {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+@media(max-width: 768px) {
+  .responseSent__description {
+    font-size: 22px;
+  }
+}

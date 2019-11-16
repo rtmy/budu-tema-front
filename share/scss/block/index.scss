@@ -1,0 +1,23 @@
+
+.index-body {
+  background: #0e0e0e;
+}
+
+.index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  background: url(https://sdelatlending.ru/wp-content/themes/xmarkup/img/old-wall.png);
+}
+
+.index_links {
+  color: #ffffff;
+  font-size: 22px;
+
+  & + & {
+    margin-top: 1rem;
+  }
+}

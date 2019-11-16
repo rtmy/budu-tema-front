@@ -1,0 +1,77 @@
+
+.container {
+  max-width: 1170px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &_home {
+    margin-top: -200px;
+  }
+
+  &__slide {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
+.container__slide {
+  margin-left: 0;
+  margin-right: 0;
+
+  & .jobOpenings__item {
+    width: auto;
+  }
+
+  & .jobSummary__item {
+    width: auto;
+  }
+}
+
+.container-fluid {
+  width: auto;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+
+    &_home {
+      margin-top: -140px;
+    }
+  }
+}
+
+@media (max-width: 980px){
+  .container {
+    max-width: 748px;
+
+    &_home {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 768px){
+  .container {
+    max-width: 460px;
+
+    &_home {
+      margin-top: 48px;
+    }
+  }
+}
+
+@media (max-width: 480px){
+  .container {
+    max-width: auto;
+  }
+
+  .container__slide {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

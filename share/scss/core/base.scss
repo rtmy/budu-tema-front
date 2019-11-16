@@ -1,0 +1,102 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  vertical-align: baseline;
+  outline: none;
+}
+
+body, input, textarea { font-size: 16px; line-height: 1.2; font-family: 'formular', sans-serif, Tahoma, Verdana; font-weight: 300;}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong { font-weight: bold; }
+
+input {
+  outline: none; border: 0;
+
+  &::placeholder {
+    color: rgba(158, 158, 158, 0.8);
+  }
+}
+
+button {
+  border: 0;
+}
+
+textarea {
+  resize: none;
+  &::placeholder {
+    color: rgba(158, 158, 158, 0.8);
+  }
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+  font-size: 16px;
+}
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; display: block;}
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+p {
+  font-weight: 300;
+  font-size: 14px;
+
+  & + & {
+    margin-top: .5rem;
+  }
+}
+
+.bodyNoSkroll {
+  overflow-y: visible;
+}
+
+.hideScroll {
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .hideScroll {
+    overflow: auto !important;
+  }
+}
+
+.no_scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+// input::-webkit-input-placeholder { color: #fff; }
+// input:-ms-input-placeholder { color: #fff; }
+// input::-ms-input-placeholder { color: #fff; }
+// input::placeholder { color: #fff; }

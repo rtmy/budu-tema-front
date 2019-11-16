@@ -1,0 +1,32 @@
+
+.social {
+  display: flex;
+  flex-direction: column;
+}
+
+.social__box {
+  display: flex;
+}
+
+.social__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+
+  & + & {
+    margin-left: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social__icon {
+    min-width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social__box {
+    margin-top: 2rem;
+  }
+}

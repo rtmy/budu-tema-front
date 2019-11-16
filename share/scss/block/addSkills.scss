@@ -1,0 +1,45 @@
+
+// .addSkills {}
+
+.addSkills__description {
+	margin-bottom: 20px;
+	color: #8e8e8e;
+	font-size: 14px;
+}
+
+.addSkills__mySkills {
+	margin-right: -4px;
+	margin-left: -4px;
+}
+
+.addSkills__mySkills-item {
+	display: inline-block;
+	margin: 4px;
+	padding: 4.5px 16px;
+	border: 1px solid #3cd52e;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #3cd52e;
+}
+
+.addSkills__line {
+	margin-top: 38px;
+	margin-bottom: 38px;
+	border-bottom: 2px dashed #e4e4e4;
+}
+
+.addSkills__defaultSkills {
+	margin-right: -4px;
+	margin-left: -4px;
+}
+
+.addSkills__defaultSkills-item {
+	display: inline-block;
+	margin: 4px;
+	padding: 4.5px 16px;
+	border: 1px solid #e2e2e2;
+	border-radius: 4px;
+	background-color: #f5f7f6;
+	cursor: pointer;
+	font-size: 14px;
+}

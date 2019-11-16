@@ -1,0 +1,12 @@
+
+.pageHome {
+  background: #39d52c;
+  background: linear-gradient(98deg,  #111111 0%,#111111 50%,#39d52c 50.1%,#39d52c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#39d52c',GradientType=0 );
+}
+
+@media (max-width: 768px) {
+  .pageHome {
+    background: linear-gradient(170deg,  #111111 0%,#111111 50%,#39d52c 50.1%,#39d52c 100%);
+  }
+}
