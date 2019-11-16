@@ -66,7 +66,7 @@ export class UniversityPickerComponent
 
   updateUniversityQuery($event) {
     let query = $event.target.value;
-    this.api.queryUniversitiesByName(query, this.city_id).then(resp => {
+    this.api.queryUniversitiesByName(query, this.city_id).subscribe(resp => {
       let universityQueryResponse = [];
       let universities = resp["response"]["items"];
       universities.forEach(u => {
@@ -77,7 +77,7 @@ export class UniversityPickerComponent
   }
 
   updateFacultyQuery($event) {
-    this.api.queryFacultiesByName(this.chosenUniversity.id).then(resp => {
+    this.api.queryFacultiesByName(this.chosenUniversity.id).subscribe(resp => {
       let facultyQueryResponse = [];
       let faculties = resp["response"]["items"];
       faculties.forEach(u => {
@@ -88,7 +88,7 @@ export class UniversityPickerComponent
   }
 
   getCityId() {
-    this.api.queryCitiesByName(this.city).then(resp => {
+    this.api.queryCitiesByName(this.city).subscribe(resp => {
       this.city_id = resp["response"]["items"][0].id;
     });
   }

@@ -29,28 +29,28 @@ export class VkApiService {
    * Query universities by name
    * @param versity_name string
    */
-  queryUniversitiesByName(versity_name: string, city_id: number): Promise<any> {
+  queryUniversitiesByName(versity_name: string, city_id: number): Observable<any> {
     return this.http.get(`${this.api}/database.getUniversities`, {params: {...this.params, q: versity_name, city_id: city_id.toString()}})
-    .pipe(catchError(this.handleError)).toPromise();
+    .pipe(catchError(this.handleError));
   }
 
    /**
    * Query cities by name
    * @param city_name string
    */
-  queryCitiesByName(city_name: string): Promise<any> {
+  queryCitiesByName(city_name: string): Observable<any> {
     return this.http.get(`${this.api}/database.getCities`, {params: {...this.params, q: city_name}})
-    .pipe(catchError(this.handleError)).toPromise();
+    .pipe(catchError(this.handleError));
   }
 
   /**
    * Query faculties by name
    * @param data any
    */
-  queryFacultiesByName(versity_id: number): Promise<any> {
+  queryFacultiesByName(versity_id: number): Observable<any> {
     return this.http.get(`${this.api}/database.getFaculties`, {params: {
         ...this.params, university_id: versity_id.toString()}})
-    .pipe(catchError(this.handleError)).toPromise();
+    .pipe(catchError(this.handleError));
   }
 
   /**
