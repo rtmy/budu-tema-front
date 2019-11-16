@@ -1,12 +1,21 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
-import { FormGroup, FormControl, NG_VALUE_ACCESSOR, NG_VALIDATORS, AbstractControl, ValidationErrors, ControlValueAccessor, Validator } from '@angular/forms';
+import { Component, OnInit, Input, forwardRef } from "@angular/core";
+import {
+  FormGroup,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+  NG_VALIDATORS,
+  AbstractControl,
+  ValidationErrors,
+  ControlValueAccessor,
+  Validator
+} from "@angular/forms";
 
-import { VkApiService } from '../vk-api.service';
+import { VkApiService } from "../vk-api.service";
 
 @Component({
-  selector: 'app-university-picker',
-  templateUrl: './university-picker.component.html',
-  styleUrls: ['./university-picker.component.scss'],
+  selector: "app-university-picker",
+  templateUrl: "./university-picker.component.html",
+  styleUrls: ["./university-picker.component.scss"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -20,8 +29,8 @@ import { VkApiService } from '../vk-api.service';
     }
   ]
 })
-export class UniversityPickerComponent implements OnInit, ControlValueAccessor, Validator {
-
+export class UniversityPickerComponent
+  implements OnInit, ControlValueAccessor, Validator {
   protected formGroup: FormGroup;
   protected autoForFaculty = null;
   protected autoForVersity = null;
@@ -31,25 +40,23 @@ export class UniversityPickerComponent implements OnInit, ControlValueAccessor, 
   protected chosenUniversity: any = {};
   protected chosenFaculty: any = {};
   protected city_id: number;
-  
+
   @Input()
-  city: string = 'Москва';
+  city: string = "Москва";
 
   @Input() disabled = false;
 
   // TODO: университетов может быть несколько
 
-  constructor(
-    private api: VkApiService
-  ) { 
+  constructor(private api: VkApiService) {
     this.formGroup = new FormGroup({
-      university: new FormControl(''),
-      faculty: new FormControl(''),
-      specialization: new FormControl(''),
-      startDate: new FormControl(''),
-      finishedDate: new FormControl(''),
-      qualification: new FormControl(''),
-      averageScore: new FormControl(''),
+      university: new FormControl(""),
+      faculty: new FormControl(""),
+      specialization: new FormControl(""),
+      startDate: new FormControl(""),
+      finishedDate: new FormControl(""),
+      qualification: new FormControl(""),
+      averageScore: new FormControl("")
     });
   }
 
@@ -59,10 +66,10 @@ export class UniversityPickerComponent implements OnInit, ControlValueAccessor, 
 
   updateUniversityQuery($event) {
     let query = $event.target.value;
-    this.api.queryUniversitiesByName(query, this.city_id).then((resp) => {
+    this.api.queryUniversitiesByName(query, this.city_id).then(resp => {
       let universityQueryResponse = [];
-      let universities = resp['response']['items'];
-      universities.forEach((u) => {
+      let universities = resp["response"]["items"];
+      universities.forEach(u => {
         universityQueryResponse.push(u);
       });
       this.universityQueryResponse = universityQueryResponse;
@@ -70,10 +77,10 @@ export class UniversityPickerComponent implements OnInit, ControlValueAccessor, 
   }
 
   updateFacultyQuery($event) {
-    this.api.queryFacultiesByName(this.chosenUniversity.id).then((resp) => {
+    this.api.queryFacultiesByName(this.chosenUniversity.id).then(resp => {
       let facultyQueryResponse = [];
-      let faculties = resp['response']['items'];
-      faculties.forEach((u) => {
+      let faculties = resp["response"]["items"];
+      faculties.forEach(u => {
         facultyQueryResponse.push(u);
       });
       this.facultyQueryResponse = facultyQueryResponse;
@@ -81,8 +88,8 @@ export class UniversityPickerComponent implements OnInit, ControlValueAccessor, 
   }
 
   getCityId() {
-    this.api.queryCitiesByName(this.city).then((resp) => {
-      this.city_id = resp['response']['items'][0].id;
+    this.api.queryCitiesByName(this.city).then(resp => {
+      this.city_id = resp["response"]["items"][0].id;
     });
   }
 
@@ -95,21 +102,22 @@ export class UniversityPickerComponent implements OnInit, ControlValueAccessor, 
   }
 
   universityNameFn(obj): string {
-      return obj.title;
+    return obj.title;
   }
 
   onChange = (value: any) => {};
-  
+
   onTouched = () => {};
 
-  set value (val){  // this value is updated by programmatic changes if( val !== undefined && this.val !== val){
-      this.formGroup = val;
-      this.onChange(val);
-      this.onTouched();
+  set value(val) {
+    // this value is updated by programmatic changes if( val !== undefined && this.val !== val){
+    this.formGroup = val;
+    this.onChange(val);
+    this.onTouched();
   }
 
   writeValue(value: any): void {
-    if(value) {
+    if (value) {
       this.formGroup.setValue(value);
     }
   }
@@ -126,8 +134,9 @@ export class UniversityPickerComponent implements OnInit, ControlValueAccessor, 
     this.disabled = isDisabled;
   }
 
-  validate(c: AbstractControl): ValidationErrors | null{
-    return this.formGroup.valid ? null : { invalidForm: {valid: false, message: "fields are invalid"}};
+  validate(c: AbstractControl): ValidationErrors | null {
+    return this.formGroup.valid
+      ? null
+      : { invalidForm: { valid: false, message: "fields are invalid" } };
   }
-
 }
