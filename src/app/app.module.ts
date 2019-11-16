@@ -13,7 +13,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 import { AvailableLanguageFilter } from './components/available-language-filter.pipe';
-import { UniversityFormComponent } from './components/university-form/university-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { UniversityFormComponent } from './components/university-form/university
     LanguagePickerComponent,
     UniversityPickerComponent,
     AvailableLanguageFilter,
-    UniversityFormComponent
   ],
   imports: [
     BrowserModule,
