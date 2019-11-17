@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, forwardRef } from "@angular/core";
+import { Component, OnInit, Input, forwardRef, Output } from "@angular/core";
 import {
-  FormGroup,
   FormControl,
   NG_VALUE_ACCESSOR,
   NG_VALIDATORS,
@@ -31,14 +30,11 @@ import { VkApiService } from "../vk-api.service";
 })
 export class UniversityPickerComponent
   implements OnInit, ControlValueAccessor, Validator {
-  protected formGroup: FormGroup;
-  protected autoForFaculty = null;
   protected autoForVersity = null;
+  protected chosenUniversity: any = {};
   protected universityQueryResponse = [];
   protected facultyQueryResponse = [];
 
-  protected chosenUniversity: any = {};
-  protected chosenFaculty: any = {};
   protected city_id: number;
 
   @Input()
@@ -46,19 +42,9 @@ export class UniversityPickerComponent
 
   @Input() disabled = false;
 
-  // TODO: университетов может быть несколько
+  @Output() university = new FormControl("");
 
-  constructor(private api: VkApiService) {
-    this.formGroup = new FormGroup({
-      university: new FormControl(""),
-      faculty: new FormControl(""),
-      specialization: new FormControl(""),
-      startDate: new FormControl(""),
-      finishedDate: new FormControl(""),
-      qualification: new FormControl(""),
-      averageScore: new FormControl("")
-    });
-  }
+  constructor(private api: VkApiService) {}
 
   ngOnInit() {
     this.getCityId();
@@ -76,33 +62,10 @@ export class UniversityPickerComponent
     });
   }
 
-  updateFacultyQuery($event) {
-    if (!this.chosenUniversity.id) {
-      return;
-    }
-
-    this.api.queryFacultiesByName(this.chosenUniversity.id).subscribe(resp => {
-      let facultyQueryResponse = [];
-      let faculties = resp["response"]["items"];
-      faculties.forEach(u => {
-        facultyQueryResponse.push(u);
-      });
-      this.facultyQueryResponse = facultyQueryResponse;
-    });
-  }
-
   getCityId() {
     this.api.queryCitiesByName(this.city).subscribe(resp => {
       this.city_id = resp["response"]["items"][0].id;
     });
-  }
-
-  setUniversity(university_obj) {
-    this.chosenUniversity = university_obj;
-  }
-
-  setFaculty(faculty_obj) {
-    this.chosenFaculty = faculty_obj;
   }
 
   universityNameFn(obj): string {
@@ -115,19 +78,19 @@ export class UniversityPickerComponent
 
   set value(val) {
     // this value is updated by programmatic changes if( val !== undefined && this.val !== val){
-    this.formGroup = val;
+    this.chosenUniversity = val;
     this.onChange(val);
     this.onTouched();
   }
 
   writeValue(value: any): void {
     if (value) {
-      this.formGroup.setValue(value);
+      this.chosenUniversity.setValue(value);
     }
   }
 
   registerOnChange(fn: (value: any) => void): void {
-    this.formGroup.valueChanges.subscribe(fn);
+    this.chosenUniversity.valueChanges.subscribe(fn);
   }
 
   registerOnTouched(fn: () => void): void {
@@ -139,7 +102,7 @@ export class UniversityPickerComponent
   }
 
   validate(c: AbstractControl): ValidationErrors | null {
-    return this.formGroup.valid
+    return this.chosenUniversity.valid
       ? null
       : { invalidForm: { valid: false, message: "fields are invalid" } };
   }

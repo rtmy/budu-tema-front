@@ -1,76 +1,31 @@
-<form class="example-container" [formGroup]="formGroup">
-  <div class="profile__container">
-    <div class="profile__title">Образование</div>
-    <div class="profile__addFields">
-      <div class="profile__box">
-        <div class="profile__box-title">Университет</div>
-        <div class="form__box">
-          <mat-form-field>
-            <input
-              (focus)="updateUniversityQuery($event)"
-              (input)="updateUniversityQuery($event)"
-              type="text"
-              class="form__field"
-              matInput
-              [matAutocomplete]="autoForVersity"
-              name="university"
-            />
-          </mat-form-field>
+<div class="profile__container">
+  <div class="profile__addFields">
+    <div class="profile__box">
+      <div class="form__box">
+        <mat-form-field>
+          <input
+            (focus)="updateUniversityQuery($event)"
+            (input)="updateUniversityQuery($event)"
+            type="text"
+            class="form__field"
+            matInput
+            [matAutocomplete]="autoForVersity"
+            [formControl]="university"
+          />
+        </mat-form-field>
 
-          <mat-autocomplete
-            #autoForVersity="matAutocomplete"
-            (optionSelected)="setUniversity($event.option.value)"
-            [displayWith]="universityNameFn"
+        <mat-autocomplete
+          #autoForVersity="matAutocomplete"
+          [displayWith]="universityNameFn"
+        >
+          <mat-option
+            *ngFor="let option of universityQueryResponse"
+            [value]="option"
           >
-            <mat-option
-              *ngFor="let option of universityQueryResponse"
-              [value]="option"
-            >
-              {{ option.title }}
-            </mat-option>
-          </mat-autocomplete>
-        </div>
-      </div>
-      <div class="profile__box">
-        <div class="profile__box-title">Факультет</div>
-        <div class="form__box">
-          <mat-form-field>
-            <input
-              (focus)="updateFacultyQuery($event)"
-              type="text"
-              class="form__field"
-              matInput
-              [matAutocomplete]="autoForFaculty"
-              name="faculty"
-            />
-          </mat-form-field>
-
-          <mat-autocomplete
-            #autoForFaculty="matAutocomplete"
-            (optionSelected)="setFaculty($event.option.value)"
-          >
-            <mat-option
-              *ngFor="let option of facultyQueryResponse"
-              [value]="option.title"
-            >
-              {{ option.title }}
-            </mat-option>
-          </mat-autocomplete>
-        </div>
-      </div>
-      <div class="profile__box">
-        <div class="profile__box-title">Специализация</div>
-        <div class="form__box">
-          <mat-form-field>
-            <input
-              type="text"
-              class="form__field"
-              name="specialization"
-              matInput
-            />
-          </mat-form-field>
-        </div>
+            {{ option.title }}
+          </mat-option>
+        </mat-autocomplete>
       </div>
     </div>
   </div>
-</form>
+</div>
