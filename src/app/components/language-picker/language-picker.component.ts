@@ -1,12 +1,21 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, AbstractControl, ValidationErrors, NG_VALIDATORS, Validator } from '@angular/forms';
-
-import { languages } from '../language-dict.service';
+import { Component, OnInit, forwardRef, Input, Output } from "@angular/core";
+import {
+  FormControl,
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  AbstractControl,
+  ValidationErrors,
+  NG_VALIDATORS,
+  Validator
+} from "@angular/forms";
+import { map, startWith } from "rxjs/operators";
+import { languages } from "../language-list.service";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-language-picker',
-  templateUrl: './language-picker.component.html',
-  styleUrls: ['./language-picker.component.scss'],
+  selector: "app-language-picker",
+  templateUrl: "./language-picker.component.html",
+  styleUrls: ["./language-picker.component.scss"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -20,71 +29,42 @@ import { languages } from '../language-dict.service';
     }
   ]
 })
-export class LanguagePickerComponent implements OnInit, ControlValueAccessor, Validator {
-
+export class LanguagePickerComponent
+  implements OnInit, ControlValueAccessor, Validator {
   availableLanguages = languages;
-  chosenLanguages = {
-    'ru': {
-      active: true,
-      level: 'middle',
-    },
-  };
-  addingMode = false;
+  filteredLanguages: Observable<any[]>;
+
+  @Output()
+  chosenControl = new FormControl('Русский');
+
+  @Input() disabled = false;
   protected autoAdd = null;
   protected autoUpdate = null;
 
-  @Input() disabled = false;
-
-  chosenControl = new FormControl([]);
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-  }
-  
-  updateChosenControl() {
-    this.chosenControl.setValue(Object.keys(this.chosenLanguages));
-  }
-  
-  addToChosen(code) {
-    this.chosenLanguages[code] = {active: true, level: 'middle'};
-    this.addingMode = false;
-    this.updateChosenControl();
-  }
-  
-  removeFromChosen(code) {
-    delete this.chosenLanguages[code];
-    this.updateChosenControl();
+
+    this.filteredLanguages = this.chosenControl.valueChanges.pipe(
+      startWith(""),
+      map(value => (typeof value === "string" ? value : value.name)),
+      map(name => (name ? this._filter(name) : this.availableLanguages.slice()))
+    );
   }
 
-  changeChosen(oldCode, newCode) {
-    this.removeFromChosen(oldCode);
-    this.addToChosen(newCode);
-    this.updateChosenControl();
-  }
-  
-  addNew() {
-    this.addingMode = true;
-  }
-
-  setLevel(code, level) {
-    this.chosenLanguages[code] = {
-      ...this.chosenLanguages[code],
-      level: level
-    };
-    this.updateChosenControl();
-  }
-  
-  private mySortingFunction = (a, b) => {
-    return 1;
+  private _filter(name: string) {
+    const filterValue = name.toLowerCase();
+    return this.availableLanguages.filter(
+      l => l.value.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 
   onChange = (rating: number) => {};
-  
+
   onTouched = () => {};
 
   writeValue(value: any): void {
-    if(value) {
+    if (value) {
       this.chosenControl.setValue(value);
     }
   }
@@ -101,8 +81,14 @@ export class LanguagePickerComponent implements OnInit, ControlValueAccessor, Va
     this.disabled = isDisabled;
   }
 
-  validate(c: AbstractControl): ValidationErrors | null{
-    return this.chosenControl.valid ? null : { invalidForm: {valid: false, message: "language control fields are invalid"}};
+  validate(c: AbstractControl): ValidationErrors | null {
+    return this.chosenControl.valid
+      ? null
+      : {
+          invalidForm: {
+            valid: false,
+            message: "language control fields are invalid"
+          }
+        };
   }
-
 }
