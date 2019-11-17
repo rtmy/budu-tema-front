@@ -33,13 +33,12 @@ export class LanguagePickerComponent
   implements OnInit, ControlValueAccessor, Validator {
   availableLanguages = languages;
   filteredLanguages: Observable<any[]>;
+  protected autoUpdate = null;
 
   @Output()
   chosenControl = new FormControl('Русский');
 
   @Input() disabled = false;
-  protected autoAdd = null;
-  protected autoUpdate = null;
 
   constructor() {}
 
