@@ -36,7 +36,7 @@ export class LanguagePickerComponent
   protected autoUpdate = null;
 
   @Output()
-  chosenControl = new FormControl('Русский');
+  chosenControl = new FormControl('');
 
   @Input() disabled = false;
 
