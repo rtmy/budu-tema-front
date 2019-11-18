@@ -7,7 +7,7 @@ export const environment = {
 
   vkapi: {
     endpoint: '/method',
-    token: 'c8bdc09dc8bdc09dc8bdc09d8ec8d0710dcc8bdc8bdc09d9505514b2a2898f0859b6a5c',
+    token: 'd4a4034fd4a4034fd4a4034faed4c9b2dfdd4a4d4a4034f8976587905a0d44d6ec58de0',
     version: '5.21',
     redirect_uri: 'https://local.budu.jobs',
     country_id: '1',
